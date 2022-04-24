@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD030 -->
 
-# VisitorWiz `v1.0.0`
+# VisitorWiz `v1.0.1`
 
 > An attendance logging/tracking app for schools.
 
