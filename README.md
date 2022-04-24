@@ -1,14 +1,14 @@
 <!-- markdownlint-disable MD030 -->
 
-# VisitorWiz v1.0.0
+# VisitorWiz `v1.0.0`
 
 > An attendance logging/tracking app for schools.
 
 ## Requirements
 
--   [MySQL](https://www.mysql.com/)
--   [Python 3.6+](https://www.python.org/)
--   [MySQL Workbench (optional)](https://www.mysql.com/products/workbench/)
+-   [MySQL](https://dev.mysql.com/)
+-   [Python 3.6+](https://www.python.org/downloads/)
+-   [MySQL Workbench (optional)](https://dev.mysql.com/downloads/workbench/)
 -   A Working Camera
 
 ## First Steps
