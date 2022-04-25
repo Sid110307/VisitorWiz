@@ -1,0 +1,24 @@
+Metadata-Version: 2.0
+Name: python-taint
+Version: 0.42
+Summary: Find security vulnerabilities in Python web applications using static analysis.
+Home-page: https://github.com/python-security/pyt
+Author: python-security
+Author-email: mr.thalmann@gmail.com
+License: GPLv2
+Download-URL: https://github.com/python-security/pyt/archive/0.42.tar.gz
+Keywords: security,vulnerability,web,flask,django,static-analysis,program-analysis
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Security
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Programming Language :: Python :: 3.6
+
+Check out PyT on `GitHub <https://github.com/python-security/pyt>`_!
+
+
