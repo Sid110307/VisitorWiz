@@ -6,7 +6,7 @@
 
 ## Requirements
 
--   [MySQL](https://dev.mysql.com/)
+-   [MySQL](https://dev.mysql.com/downloads/mysql/)
 -   [Python 3.6+](https://www.python.org/downloads/)
 -   [MySQL Workbench (optional)](https://dev.mysql.com/downloads/workbench/)
 -   A Working Camera
@@ -72,3 +72,8 @@ python main.py
             -   `attendanceTime`: The time of the attendance.
     -   Another table, called `attendance_old`, is used as a log for the previous days attendance (and attendance that is marked before that).
         -   It has a similar structure to the `attendance` table.
+
+## License
+
+> [MIT](./LICENSE)
+
