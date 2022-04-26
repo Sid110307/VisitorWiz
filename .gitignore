@@ -1,2 +1,7 @@
+# macOS shit
 .DS_Store
+.localized
+
+# other stuff
 .env
+tests/*

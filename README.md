@@ -1,6 +1,6 @@
 <!-- markdownlint-disable MD030 -->
 
-# VisitorWiz `v1.0.1`
+# VisitorWiz `v1.0.2`
 
 > An attendance logging/tracking app for schools.
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `visitorwiz`.`attendance` (
 ) ENGINE=InnoDB;
 ```
 
--   Save the students' faces as JPG images in the [`tests`](./tests/) folder.
+-   Save the students' faces as JPG images in a new `tests` folder in the project root.
 
 ## Quick Start
 

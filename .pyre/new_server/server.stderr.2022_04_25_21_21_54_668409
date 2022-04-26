@@ -1,0 +1,43 @@
+2022-04-25 21:21:55 INFO Initializing file watching service...
+2022-04-25 21:21:55 INFO Connecting to watchman...
+2022-04-25 21:21:55 INFO Established watchman connection.
+2022-04-25 21:21:55 INFO Request watchman subscription at /Users/sid/Desktop/VisitorWiz
+2022-04-25 21:21:55 INFO Server has started listening on socket `/var/folders/vw/20clzjlx5llcqmx67mtf5v_h0000gn/T/pyre_server_cdd308ccb2d413a43dd9af9b1a3e6ba2.sock`
+2022-04-25 21:21:55 INFO Initializing shared memory [heap_size=8589934592, dep_table_pow=27, hash_table_pow=26]
+2022-04-25 21:21:55 INFO Initializing server state from scratch...
+2022-04-25 21:21:55 INFO Building module tracker...
+2022-04-25 21:21:56 PERFORMANCE Module tracker built: 0.572s
+2022-04-25 21:21:56 INFO Building type environment...
+2022-04-25 21:21:56 PERFORMANCE Sources parsed: 0.064s
+2022-04-25 21:22:44 PERFORMANCE Full environment built: 48.407s
+2022-04-25 21:22:45 INFO Checking 73495 functions...
+2022-04-25 21:22:52 PROGRESS Processed 994 of 73495 functions
+2022-04-25 21:22:58 PROGRESS Processed 1988 of 73495 functions
+2022-04-25 21:23:02 PROGRESS Processed 2982 of 73495 functions
+2022-04-25 21:23:05 PROGRESS Processed 3976 of 73495 functions
+2022-04-25 21:23:08 PROGRESS Processed 4970 of 73495 functions
+2022-04-25 21:23:11 PROGRESS Processed 5964 of 73495 functions
+2022-04-25 21:23:14 PROGRESS Processed 6958 of 73495 functions
+2022-04-25 21:23:16 PROGRESS Processed 7952 of 73495 functions
+2022-04-25 21:23:20 PROGRESS Processed 8946 of 73495 functions
+2022-04-25 21:23:23 PROGRESS Processed 9940 of 73495 functions
+2022-04-25 21:23:25 PROGRESS Processed 10934 of 73495 functions
+2022-04-25 21:23:31 PROGRESS Processed 11928 of 73495 functions
+2022-04-25 21:23:37 PROGRESS Processed 12922 of 73495 functions
+2022-04-25 21:23:50 PROGRESS Processed 13916 of 73495 functions
+2022-04-25 21:23:56 PROGRESS Processed 14910 of 73495 functions
+2022-04-25 21:24:46 PROGRESS Processed 15904 of 73495 functions
+2022-04-25 21:24:53 PROGRESS Processed 16898 of 73495 functions
+2022-04-25 21:24:56 PROGRESS Processed 17892 of 73495 functions
+2022-04-25 21:24:59 PROGRESS Processed 18886 of 73495 functions
+(Sys_error "Broken pipe")
+Raised at file "string.ml", line 115, characters 19-34
+Called from file "src/sexp.ml", line 113, characters 13-47
+(Sys_error "Broken pipe")
+Raised at file "string.ml", line 115, characters 19-34
+Called from file "src/sexp.ml", line 113, characters 13-47
+2022-04-25 21:25:02 ERROR (Sys_error "Broken pipe")
+Uncaught exception:
+  
+  (Sys_error "Broken pipe")
+
