@@ -106,7 +106,7 @@ class VisitorWiz():
 
         ret, self.img = self.cam.read()
 
-        if not ret or not self.img:
+        if not ret:
             print("Failed to capture video")
             self.cleanup()
 
@@ -184,10 +184,11 @@ class VisitorWiz():
             self.registration, text="Register", command=self.register_face)
         self.register_button.grid(row=2, column=1)
 
-        def continue_video_capture(_):
+        def continue_video_capture():
+            self.registration.destroy()
             self.stop_video_capture = False
+            self.start_attendance()
 
-        # type: ignore
         self.registration.protocol("WM_DELETE_WINDOW", continue_video_capture)
 
     def choose_face(self):
@@ -199,7 +200,7 @@ class VisitorWiz():
         self.reg_face = self.face_input.get()
 
         if self.reg_name == "" or self.reg_face == "":
-            messagebox.showerror("Error", "Please fill in all fields")
+            messagebox.showerror("Error", "Please fill in all the fields")
             return
 
         face_img = cv2.imread(self.reg_face)
@@ -227,3 +228,4 @@ class VisitorWiz():
 
 if __name__ == "__main__":
     VisitorWiz()
+

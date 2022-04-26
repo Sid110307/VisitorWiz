@@ -31,6 +31,10 @@ CREATE TABLE IF NOT EXISTS `visitorwiz`.`attendance` (
 ) ENGINE=InnoDB;
 ```
 
+```sql
+CREATE TABLE IF NOT EXISTS `visitorwiz`.`attendance_old` LIKE `visitorwiz`.`attendance`;
+```
+
 -   Save the students' faces as JPG images in a new `tests` folder in the project root.
 
 ## Quick Start

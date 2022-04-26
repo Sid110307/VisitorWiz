@@ -1,9 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
-pip list | grep -F opencv >> /dev/null
-
-if [ $? -ne 0 ]; then
-	pip install opencv-python face_recognition mysql-connector-python pillow python-dotenv >> /dev/null
-fi
+echo -en "\033[36mResolving dependencies... \033[0m"
+pip install cmake opencv-python face_recognition mysql-connector-python pillow python-dotenv >> /dev/null
+echo -e "\033[1;32mDone.\033[0m"
 
 python3 src/main.py
