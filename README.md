@@ -13,7 +13,7 @@
 
 ## First Steps
 
--   Run the following queries:
+-   Run the following queries in the MySQL prompt:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS `visitorwiz`;
