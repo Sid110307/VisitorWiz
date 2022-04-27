@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-__version__ = "1.0.2"
+__version__ = "1.0.3"
 
 import os
 import time
@@ -22,37 +22,39 @@ load_dotenv()
 
 class VisitorWiz():
     def __init__(self):
-        self.database = mysql.connector.connect(
-            host="localhost",
-            user=os.environ.get("DB_USER"),
-            password=os.environ.get("DB_PASS"),
-            database=os.environ.get("DB_NAME")
-        )
+        try:
+            self.database = mysql.connector.connect(
+                host="localhost",
+                user=os.environ.get("DB_USER"),
+                password=os.environ.get("DB_PASS"),
+                database=os.environ.get("DB_NAME")
+            )
 
-        self.color = (0, 0, 255)
-        self.stop_video_capture = False
+            self.color = (0, 0, 255)
+            self.stop_video_capture = False
 
-        path = "tests"
-        self.images = []
-        self.class_names = []
+            path = "tests"
+            self.images = []
+            self.class_names = []
 
-        for f in os.listdir(path):
-            if f not in [".gitignore", ".DS_Store"]:
-                self.images.append(cv2.imread(os.path.join(path, f)))
-                self.class_names.append(os.path.splitext(f)[0])
+            for f in os.listdir(path):
+                if f not in [".gitignore", ".DS_Store"]:
+                    self.images.append(cv2.imread(os.path.join(path, f)))
+                    self.class_names.append(os.path.splitext(f)[0])
 
-        self.encode_faces_known = self.find_encodings()
-        self.date = datetime.now().strftime("%Y-%m-%d")
+            self.encode_faces_known = self.find_encodings()
 
-        self.cam = cv2.VideoCapture(0)
-        self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
-        self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
+            self.cam = cv2.VideoCapture(0)
+            self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
+            self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-        self.init_ui()
-        self.move_old_data()
+            self.init_ui()
+            self.move_old_data()
 
-        self.start_attendance()
-        self.root.mainloop()
+            self.start_attendance()
+            self.root.mainloop()
+        except KeyboardInterrupt:
+            self.cleanup()
 
     def move_old_data(self):
         cursor = self.database.cursor(prepared=True)
@@ -60,7 +62,7 @@ class VisitorWiz():
         insert_query = "INSERT INTO attendance_old (name, face, date, status, attendanceTime) VALUES (%s, %s, %s, %s, %s)"
 
         cursor.execute(
-            select_query, (self.date,))
+            select_query, (datetime.now().strftime("%Y-%m-%d"),))
         result = cursor.fetchall()
 
         for row in result:
@@ -80,23 +82,22 @@ class VisitorWiz():
 
         cursor.execute(
             select_query,
-            (self.name, self.date))
+            (self.name, datetime.now().strftime("%Y-%m-%d")))
         result = cursor.fetchall()
 
         if len(result) == 0:
             insert_query = "INSERT INTO attendance (name, face, date, status, attendanceTime) VALUES (%s, %s, %s, %s, %s)"
             cursor.execute(
                 insert_query,
-                (self.name, str(encode_face), self.date, "Present", "datetime.now().strftime('%I:%M %p')"))
+                (self.name, str(encode_face), datetime.now().strftime("%Y-%m-%d"), "Present", datetime.now().strftime('%I:%M %p')))
             self.database.commit()
 
             print(f"{self.name} marked present")
-            cv2.putText(self.img, f"'{self.name}' is present", (5, 25),
-                        cv2.FONT_HERSHEY_PLAIN, 2, self.color, 2)
+            self.message_log.config(text=f"{self.name} marked present")
             time.sleep(1)
         else:
-            cv2.putText(self.img, f"'{self.name}' is already present", (5, 25),
-                        cv2.FONT_HERSHEY_PLAIN, 2, self.color, 2)
+            self.message_log.config(
+                text=f"{self.name} is already marked present")
 
         cursor.close()
 
@@ -147,6 +148,8 @@ class VisitorWiz():
         self.root = tk.Tk()
         self.root.title("VisitorWiz")
         self.root.focus_set()
+        self.root.iconphoto(False, tk.PhotoImage(file="assets/favicon.png"))
+
         self.root.resizable(False, False)
         self.root.bind("q", lambda _: self.cleanup())
 
@@ -157,9 +160,12 @@ class VisitorWiz():
             self.root, text="Register", command=self.register)
         self.register_button.grid(row=1, column=0, sticky="nsew")
 
+        self.message_log = ttk.Label(self.root, text="", anchor="e")
+        self.message_log.grid(row=1, column=1, sticky="nsew")
+
     def register(self):
         self.registration = tk.Toplevel(self.root)
-        self.registration.title("Register")
+        self.registration.title("Registration")
         self.registration.focus_set()
         self.registration.resizable(False, False)
 
@@ -228,4 +234,3 @@ class VisitorWiz():
 
 if __name__ == "__main__":
     VisitorWiz()
-
