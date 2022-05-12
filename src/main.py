@@ -48,8 +48,8 @@ class VisitorWiz():
             self.cam.set(cv2.CAP_PROP_FRAME_WIDTH, 640)
             self.cam.set(cv2.CAP_PROP_FRAME_HEIGHT, 480)
 
-            self.init_ui()
             self.move_old_data()
+            self.init_ui()
 
             self.start_attendance()
             self.root.mainloop()
