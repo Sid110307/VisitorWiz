@@ -1,5 +1,7 @@
 <!-- markdownlint-disable MD030 -->
 
+# THIS PROJECT HAS BEEN MOVED [HERE](https://github.com/Sid110307/Attendifier.git).
+
 # VisitorWiz `v1.0.3`
 
 > An attendance logging/tracking app for schools.
